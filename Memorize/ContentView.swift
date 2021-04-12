@@ -12,7 +12,7 @@ struct ContentView: View {
         HStack {
             ForEach(0..<4){indx in
                 
-                cardsviw()
+                cardsviw(isFaceup: false)
             }
             
            
@@ -35,12 +35,19 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct cardsviw: View {
+    var isFaceup:Bool
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 10.0).fill()
-           // RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-            Text("🇩🇿")
-                .padding()
+            if isFaceup{
+                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
+                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
+                Text("🇩🇿")
+                    .padding()
+            }else{
+                RoundedRectangle(cornerRadius: 10.0).fill()
+                
+            }
+           
             
         }
        
